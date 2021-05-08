@@ -39,25 +39,25 @@ class SlothMachine {
     this.totalCoins = 0;
   }
 
-  private getResults() {
+  private getResults(): Array<boolean> {
     const list = [null,null,null];
     return list.map((item) => item = Boolean(Math.round(Math.random())));
   }
 
-  private sumCoin() {
+  private sumCoin(): void {
     this.totalCoins += 1;
   }
 
-  private resetCoins() {
+  private resetCoins(): void {
     this.totalCoins = 0;
   }
 
-  private checkIsWinner() {
+  private checkIsWinner(): Boolean {
     const results = this.getResults();
     return results.filter((result) => result).length === 3;
   }
 
-  public play() {
+  public play(): void {
     this.sumCoin();
     const hasWon = this.checkIsWinner();
     if (hasWon) {
